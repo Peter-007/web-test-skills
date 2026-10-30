@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "anthropic.claude-code",
+        "pydemia.tasklens",
+        "cweijan.vscode-office",
+        "hediet.vscode-drawio",
+        "ms-python.debugpy",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-python.vscode-python-envs",
+        "mechatroner.rainbow-csv",
+    ]
+}

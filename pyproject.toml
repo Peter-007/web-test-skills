@@ -1,0 +1,39 @@
+[project]
+name = "web-test"
+version = "0.1.0"
+description = "web automatic testing"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "allure-pytest>=2.16.0",
+    "paramiko>=3.3.1",
+    "playwright>=1.62.0",
+    "pyserial>=3.5",
+    "pytest>=9.1.1",
+    "pytest-dependency>=0.6.0",
+    "pytest-html>=4.2.0",
+    "pytest-liveview>=0.1.0",
+    "pytest-playwright>=0.9.0",
+    "pytest-repeat>=0.9.4",
+    "pytest-step-logger>=0.1.0",
+    "pytest-sugar>=1.1.1",
+    "pyyaml>=6.0.3",
+]
+
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["scripts"]
+python_files = ["test_*.py", "*_test.py"]
+python_functions = ["test_*"]
+addopts = [ "-v",
+            "-ra",
+            "--capture=sys",
+            "--headed"
+          ]
+log_format = "[%(asctime)s] [%(levelname)-7s] [%(name)s] %(message)s"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+log_cli = true
+generate_report_on_test = true 
+xfail_strict = true
+

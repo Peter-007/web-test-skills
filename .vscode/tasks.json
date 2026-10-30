@@ -1,0 +1,94 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // ========== 🛠️ 环境配置 ==========
+        {
+            "label": "🛠️ 环境: 安装依赖包",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "sync"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "🛠️ 环境: 安装浏览器",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "playwright",
+                "install",
+                "chromium"
+            ],
+            "group": "build",
+            "problemMatcher": [],
+        },
+        // ========== 🧪 测试执行 ==========
+        {
+            "label": "🧪 测试: 平台自检",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "pytest",
+                "--liveview",
+                "--liveview-open",
+                "--html=reports/report.html",
+                "--self-contained-html",
+                "--count=3",
+                "--repeat-scope=session",
+                "scripts/tests/test_iats_smoke.py"
+            ],
+            "group": "test",
+            "problemMatcher": [],
+        },
+        {
+            "label": "🧪 测试: 当前用例",
+            "type": "shell",
+            "command": "uv",
+            "args": [
+                "run",
+                "pytest",
+                "--liveview",
+                //"--liveview-open",
+                "--html=reports/report.html",
+                "--self-contained-html",
+                "${file}"
+            ],
+            "group": "test",
+            "problemMatcher": [],
+        },
+       
+        // ========== 📊 测试报告 ==========
+        {
+            "label": "📊 报告: 实时测试结果",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "start",
+                "",
+                "http://127.0.0.1:8085/"
+            ],
+            "problemMatcher": [],
+        },
+        {
+            "label": "📊 报告: 打开测试报告",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "start",
+                "",
+                "reports\\report.html"
+            ],
+            "problemMatcher": [],
+        },
+
+    ]
+}

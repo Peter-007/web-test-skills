@@ -1,0 +1,14 @@
+{
+  "browser":{
+    "launchOptions":{
+      "headless": false
+    },
+    "contextOptions": {
+      "ignoreHTTPSErrors": true
+    },
+    "timeouts": {
+      "action": 10000,
+      "navigation": 60000
+    }
+  }
+}
